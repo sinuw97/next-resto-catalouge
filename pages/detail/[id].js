@@ -23,7 +23,7 @@ export default function Detail({ restaurant }) {
 
         <h2>Minuman</h2>
         <ul>
-          {drinks.mup((drink) => (
+          {drinks.map((drink) => (
             <li key={drink.name}>{drink.name}</li>
           ))}
         </ul>
@@ -32,7 +32,7 @@ export default function Detail({ restaurant }) {
   );
 }
 
-export async function getStaticPath() {
+export async function getStaticPaths() {
   // call an external API endpoint to get ids of restaurants
   const response = await fetch('https://restaurant-api.dicoding.dev/list');
   const { restaurants } = await response.json();
